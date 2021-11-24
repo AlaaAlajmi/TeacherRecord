@@ -30,7 +30,8 @@ namespace ConsoleApp2
 
 			//InsertUser();
 			//RetrieveUser();
-			UpdateUser();
+			//UpdateUser();
+			ClearFile();
 
 		}
 		// File Creation Method
@@ -127,6 +128,9 @@ namespace ConsoleApp2
 					break;
 				}
 			}
+		}
+		public static void ClearFile() {
+			File.WriteAllText(filename, String.Empty);
 		}
 
 	}
