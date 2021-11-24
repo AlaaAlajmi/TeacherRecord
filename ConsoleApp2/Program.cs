@@ -29,7 +29,8 @@ namespace ConsoleApp2
 			Console.WriteLine("*******************************************************");
 
 			//InsertUser();
-			RetrieveUser();
+			//RetrieveUser();
+			UpdateUser();
 
 		}
 		// File Creation Method
@@ -37,7 +38,7 @@ namespace ConsoleApp2
 		{
 			// Creating a file
 			string dir = Directory.GetCurrentDirectory();
-			 filename = dir + "TeacherData.txt";
+			filename = dir + "TeacherData.txt";
 			//Console.WriteLine("The current directory is {0}", filename);
 
 			// Check if file exists
@@ -77,12 +78,12 @@ namespace ConsoleApp2
 				File.WriteAllLines(filename, lines);
 			}
 		}
-		public static void RetrieveUser(){
-		Console.ForegroundColor = ConsoleColor.White;
-				Console.WriteLine(" \n*******************************************************");
-				Console.WriteLine("Enter ID to Retrieve:");
-				string SearchID = Console.ReadLine();
-		Console.WriteLine("*******************************************************");
+		public static void RetrieveUser() {
+			Console.ForegroundColor = ConsoleColor.White;
+			Console.WriteLine(" \n*******************************************************");
+			Console.WriteLine("Enter ID to Retrieve:");
+			string SearchID = Console.ReadLine();
+			Console.WriteLine("*******************************************************");
 			foreach (var line in lines)
 			{
 				string[] result = line.Split(',');
@@ -93,6 +94,40 @@ namespace ConsoleApp2
 					Console.WriteLine("******************************************************* \n");
 				}
 			}
-}
+		}
+			public static void UpdateUser() {
+			Console.WriteLine("*******************************************************\n");
+			Console.ForegroundColor = ConsoleColor.White;
+			Console.WriteLine("Enter ID to Update:");
+			string SearchID = Console.ReadLine();
+			Console.WriteLine("*******************************************************");
+			foreach (var line in lines)
+			{
+				string[] result = line.Split(',');
+				if (result[0] == SearchID)
+				{
+					lines.Remove(result[0] + ',' + result[1] + ',' + result[2] + ',' + result[3]);
+					Console.WriteLine("Enter Name:");
+					string UserName = Console.ReadLine();
+					Console.WriteLine("Enter Class:");
+					string UserClass = Console.ReadLine();
+					Console.WriteLine("Enter Section:");
+					string UserSection = Console.ReadLine();
+					result[1] = UserName;
+					result[2] = UserClass;
+					result[3] = UserSection;
+					string x = SearchID + ',' + UserName + ',' + UserClass + ',' + UserSection;
+					lines.Add(x);
+					File.WriteAllLines(filename, lines);
+					Console.WriteLine("*******************************************************\n");
+					Console.ForegroundColor = ConsoleColor.Green;
+					Console.WriteLine("Record is Updated! \n");
+					Console.WriteLine("ID:" + result[0] + "\t Name:" + result[1] + "\t Class:" + result[2] + "\t Section:" + result[3]);
+					Console.WriteLine("******************************************************* \n");
+					break;
+				}
+			}
+		}
+
 	}
 }
