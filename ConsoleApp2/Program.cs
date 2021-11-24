@@ -7,10 +7,13 @@ namespace ConsoleApp2
 {
 	class Program
 	{
+		static string filename;
+		static List<string> lines;
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Create File");
+			// Calling the File Creation Method
 			FileCreation();
+
 			// System Options
 			Console.ForegroundColor = ConsoleColor.Blue;
 			Console.WriteLine("*******************************************************");
@@ -25,14 +28,15 @@ namespace ConsoleApp2
 			Console.WriteLine("4. Clear File");
 			Console.WriteLine("*******************************************************");
 
+			InsertUser();
 
-			
 		}
 		// File Creation Method
-		public static void FileCreation(){
-		// Creating a file
-		string dir = Directory.GetCurrentDirectory();
-		string filename = dir + "TeacherData.txt";
+		public static void FileCreation()
+		{
+			// Creating a file
+			string dir = Directory.GetCurrentDirectory();
+			 filename = dir + "TeacherData.txt";
 			//Console.WriteLine("The current directory is {0}", filename);
 
 			// Check if file exists
@@ -51,8 +55,26 @@ namespace ConsoleApp2
 				Console.WriteLine("******************************************************* \n");
 				File.CreateText(filename);
 			}
-			List<string> lines = File.ReadAllLines(filename).ToList();
+			lines = File.ReadAllLines(filename).ToList();
 		}
-
+		public static void InsertUser()
+		{
+			Console.WriteLine("Enter How many user you want:");
+			int InputCont = Convert.ToInt32(Console.ReadLine());
+			for (int i = 0; i < InputCont; i++)
+			{
+				Console.WriteLine("Enter ID :");
+				int UserID = Convert.ToInt32(Console.ReadLine());
+				Console.WriteLine("Enter Name :");
+				string UserName = Console.ReadLine();
+				Console.WriteLine("Enter Class :");
+				string UserClass = Console.ReadLine();
+				Console.WriteLine("Enter Section :");
+				string UserSection = Console.ReadLine();
+				string x = UserID.ToString() + ',' + UserName + ',' + UserClass + ',' + UserSection;
+				lines.Add(x);
+				File.WriteAllLines(filename, lines);
+			}
+		}
 	}
 }
