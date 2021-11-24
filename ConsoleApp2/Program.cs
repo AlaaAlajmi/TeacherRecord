@@ -97,8 +97,9 @@ namespace ConsoleApp2
 				Console.WriteLine("*******************************************************");
 				Console.ForegroundColor = ConsoleColor.Green;
 				Console.WriteLine("User is Added! \n");
-				
+				Console.ForegroundColor = ConsoleColor.Cyan;
 			}
+			
 		}
 		public static void RetrieveUser() {
 			Console.ForegroundColor = ConsoleColor.White;
