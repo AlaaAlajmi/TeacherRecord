@@ -11,6 +11,22 @@ namespace ConsoleApp2
 		{
 			Console.WriteLine("Create File");
 			FileCreation();
+			// System Options
+			Console.ForegroundColor = ConsoleColor.Blue;
+			Console.WriteLine("*******************************************************");
+			Console.WriteLine("	Welcome to Rainbow School System");
+			Console.WriteLine("*******************************************************\n");
+			Console.ForegroundColor = ConsoleColor.Cyan;
+			Console.WriteLine("*******************************************************");
+			Console.WriteLine("Please Enter your Option:");
+			Console.WriteLine("1. Insert");
+			Console.WriteLine("2. Retrieve");
+			Console.WriteLine("3. Update");
+			Console.WriteLine("4. Clear File");
+			Console.WriteLine("*******************************************************");
+
+
+			
 		}
 		// File Creation Method
 		public static void FileCreation(){
@@ -37,5 +53,6 @@ namespace ConsoleApp2
 			}
 			List<string> lines = File.ReadAllLines(filename).ToList();
 		}
+
 	}
 }
