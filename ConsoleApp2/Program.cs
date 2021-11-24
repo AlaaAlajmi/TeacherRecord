@@ -94,6 +94,10 @@ namespace ConsoleApp2
 				string x = UserID.ToString() + ',' + UserName + ',' + UserClass + ',' + UserSection;
 				lines.Add(x);
 				File.WriteAllLines(filename, lines);
+				Console.WriteLine("*******************************************************");
+				Console.ForegroundColor = ConsoleColor.Green;
+				Console.WriteLine("User is Added! \n");
+				
 			}
 		}
 		public static void RetrieveUser() {
