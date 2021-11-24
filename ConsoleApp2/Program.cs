@@ -28,7 +28,8 @@ namespace ConsoleApp2
 			Console.WriteLine("4. Clear File");
 			Console.WriteLine("*******************************************************");
 
-			InsertUser();
+			//InsertUser();
+			RetrieveUser();
 
 		}
 		// File Creation Method
@@ -76,5 +77,22 @@ namespace ConsoleApp2
 				File.WriteAllLines(filename, lines);
 			}
 		}
+		public static void RetrieveUser(){
+		Console.ForegroundColor = ConsoleColor.White;
+				Console.WriteLine(" \n*******************************************************");
+				Console.WriteLine("Enter ID to Retrieve:");
+				string SearchID = Console.ReadLine();
+		Console.WriteLine("*******************************************************");
+			foreach (var line in lines)
+			{
+				string[] result = line.Split(',');
+				if (result[0] == SearchID)
+				{
+
+					Console.WriteLine("ID:" + result[0] + "\t Name:" + result[1] + "\tClass: " + result[2] + "\t Section:" + result[3]);
+					Console.WriteLine("******************************************************* \n");
+				}
+			}
+}
 	}
 }
