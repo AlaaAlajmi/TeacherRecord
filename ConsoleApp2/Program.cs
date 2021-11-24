@@ -28,10 +28,26 @@ namespace ConsoleApp2
 			Console.WriteLine("4. Clear File");
 			Console.WriteLine("*******************************************************");
 
-			//InsertUser();
-			//RetrieveUser();
-			//UpdateUser();
-			ClearFile();
+			//Checking the number enterd and calling the appropriate method
+			int Option = Convert.ToInt32(Console.ReadLine());
+			if (Option == 1)
+			{
+				InsertUser();
+			}
+
+			else if (Option == 2)
+			{
+				RetrieveUser();
+			}
+
+			else if (Option == 3)
+			{
+				UpdateUser();
+			}
+			else if (Option == 4)
+			{
+				ClearFile();
+			}
 
 		}
 		// File Creation Method
